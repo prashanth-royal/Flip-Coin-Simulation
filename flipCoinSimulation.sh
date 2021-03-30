@@ -1,12 +1,10 @@
 #!/bin/bash -x
 
-echo Enter number of times coin to flip
-read num
-
+num=21
 heads=0
 tails=0
 
-	while [ $heads -le $num ] && [ $tails -le $num ]
+	while [ $heads -lt $num ] && [ $tails -lt $num ]
 	do
 		coinFlip=$((RANDOM%2))
 
@@ -20,5 +18,12 @@ tails=0
 	fi
 done
 
-	echo "HEADS won $heads times"
-	echo "TAILS won $tails times"
+	if [ $heads -eq $tails ]
+	then
+			echo "TIE"
+	elif [ $heads -gt $tails ]
+	then
+			echo "HEADS won $heads times"
+	else
+			echo "TAILS won $tails times"
+fi
